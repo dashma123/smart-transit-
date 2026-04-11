@@ -151,7 +151,7 @@ const LandingPage = () => {
           <div>
             <h4>CONTACT</h4>
             <p>Email: info@smarttransit.com</p>
-            <p>Phone: +977-1-4567890</p>
+            <p>Phone: 9863330256</p>
           </div>
         </div>
         <p className="copyright">
