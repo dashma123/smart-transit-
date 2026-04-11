@@ -25,7 +25,7 @@ router.post("/initiate", auth, async (req, res) => {
       {
         return_url: "http://localhost:5173/payment-success",
         website_url: "http://localhost:5173",
-        amount: amount, // Amount in paisa
+        amount: amount, 
         purchase_order_id: orderId,
         purchase_order_name: "Smart Bus Wallet Top-up",
         customer_info: {
@@ -115,7 +115,7 @@ router.post("/verify", auth, async (req, res) => {
       // Step 7: Save to database
       await user.save();
 
-      console.log(`✅ Wallet updated! New balance: Rs ${user.walletBalance / 100}`);
+      console.log(` Wallet updated! New balance: Rs ${user.walletBalance / 100}`);
 
       // Step 8: Send success response
       res.json({ 

@@ -22,7 +22,7 @@ exports.sendLowBalanceAlert = async (phoneNumber, userName, balance) => {
 
     const message = `Dear ${userName}, your bus card balance is low. Current balance: Rs ${(balance / 100).toFixed(2)}. Please top up to continue service. -SmartBus`;
 
-    console.log('📱 Sending SMS to:', formattedPhone);
+    console.log('Sending SMS to:', formattedPhone);
 
     const result = await client.messages.create({
       body: message,
@@ -30,7 +30,7 @@ exports.sendLowBalanceAlert = async (phoneNumber, userName, balance) => {
       to: formattedPhone
     });
 
-    console.log('✅ SMS sent successfully! SID:', result.sid);
+    console.log('SMS sent successfully! SID:', result.sid);
     console.log('Status:', result.status);
     
     return { 
@@ -40,7 +40,7 @@ exports.sendLowBalanceAlert = async (phoneNumber, userName, balance) => {
     };
 
   } catch (error) {
-    console.error('❌ SMS send error:', error.message);
+    console.error('SMS send error:', error.message);
     return { 
       success: false, 
       error: error.message 
@@ -60,7 +60,7 @@ exports.sendGeneralAlert = async (phoneNumber, userName, message) => {
 
     const smsText = `Dear ${userName}, ${message} -SmartBus`;
 
-    console.log('📱 Sending SMS to:', formattedPhone);
+    console.log('Sending SMS to:', formattedPhone);
 
     const result = await client.messages.create({
       body: smsText,
@@ -68,7 +68,7 @@ exports.sendGeneralAlert = async (phoneNumber, userName, message) => {
       to: formattedPhone
     });
 
-    console.log('✅ SMS sent successfully! SID:', result.sid);
+    console.log('SMS sent successfully! SID:', result.sid);
     
     return { 
       success: true, 
@@ -76,7 +76,7 @@ exports.sendGeneralAlert = async (phoneNumber, userName, message) => {
     };
 
   } catch (error) {
-    console.error('❌ SMS send error:', error.message);
+    console.error('SMS send error:', error.message);
     return { 
       success: false, 
       error: error.message 

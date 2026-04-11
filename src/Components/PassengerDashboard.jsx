@@ -130,7 +130,7 @@ const [cardStatus] = useState(user?.rfid_card_id ? "Active" : "Inactive");
           transactions.slice(0, 10).map((txn) => (
             <div key={txn._id} className="trip-card">
               <FiMapPin />
-              {txn.type === "topup" ? "💰 Wallet Top-up" : "🚌 Bus Fare"} |{" "}
+              {txn.type === "topup" ? " Wallet Top-up" : "Bus Fare"} |{" "}
               {new Date(txn.timestamp).toLocaleDateString()}{" "}
               {new Date(txn.timestamp).toLocaleTimeString()} | Amount: Rs{" "}
               {txn.amount.toFixed(2)} | Status: {txn.status}

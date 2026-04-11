@@ -84,7 +84,11 @@ export const adminAPI = {
   getTransactions: () => api.get('/admin/transactions'),
   getLowBalanceUsers: () => api.get('/admin/low-balance-users'),
   sendAlert: (userId) => api.post('/admin/send-alert', { userId }),
+  searchPassenger: (query) => api.get(`/admin/passengers/search?q=${query}`),
+  linkRfidCard: (userId, rfidCardId) => api.post('/admin/link-rfid', { userId, rfid_card_id: rfidCardId }),
+  getAllPassengers: () => api.get('/admin/passengers'), // ADD THIS
 };
+
 
 // ==================== REPORT APIs ====================
 export const reportAPI = {

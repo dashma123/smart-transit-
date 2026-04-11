@@ -32,6 +32,16 @@ const userSchema = new mongoose.Schema({
     type: Number,
     default: 0
   },
+  walletTransactions: [
+  {
+    amount: { type: Number },
+    type: { type: String },
+    description: { type: String },
+    timestamp: { type: Date, default: Date.now }
+  }
+],
+
+
   rfid_card_id: {
     type: String,
     default: null
@@ -42,7 +52,12 @@ const userSchema = new mongoose.Schema({
   }
 }, {
   timestamps: true
+
 });
+
+
+
+
 
 // Hash password before saving
 userSchema.pre('save', async function() {

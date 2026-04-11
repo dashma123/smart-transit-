@@ -14,8 +14,8 @@ app.use(express.json());
 
 // MongoDB Connection
 mongoose.connect(process.env.MONGODB_URI)
-  .then(() => console.log('✅ MongoDB Connected Successfully!'))
-  .catch((err) => console.log('❌ MongoDB Connection Error:', err));
+  .then(() => console.log('MongoDB Connected Successfully!'))
+  .catch((err) => console.log('MongoDB Connection Error:', err));
 
 // Import routes - ALL IN ONE PLACE
 const authRoutes = require('./routes/authRoutes.cjs');

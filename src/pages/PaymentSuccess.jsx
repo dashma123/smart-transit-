@@ -33,22 +33,22 @@ function PaymentSuccess() {
         console.log('Verify response:', response.data);
 
         if (response.data.success) {
-          console.log('✅ Payment verified successfully!');
+          console.log('Payment verified successfully!');
           setStatus('success');
-          setMessage(`Payment successful! Rs ${(response.data.amount / 100).toFixed(2)} added to your wallet.`);
+          setMessage(`Payment successful! Rs ${response.data.transaction?.amount} added to your wallet.`);
           
           // Redirect to dashboard after 3 seconds
           setTimeout(() => {
             navigate('/passenger-dashboard');
           }, 3000);
         } else {
-          console.log('❌ Payment verification failed');
+          console.log('Payment verification failed');
           setStatus('error');
           setMessage(response.data.message || 'Payment verification failed');
         }
 
       } catch (error) {
-        console.error('❌ Verification error:', error);
+        console.error('Verification error:', error);
         setStatus('error');
         setMessage('Failed to verify payment. Please check your wallet or contact support.');
       }
@@ -62,7 +62,7 @@ function PaymentSuccess() {
       <div className="login-card" style={{maxWidth: '500px'}}>
         {status === 'verifying' && (
           <>
-            <div style={{fontSize: '64px', marginBottom: '20px'}}>⏳</div>
+            <div style={{fontSize: '64px', marginBottom: '20px'}}></div>
             <h2>Verifying Payment...</h2>
             <p style={{marginTop: '15px', color: '#666'}}>
               Please wait while we confirm your payment with Khalti.
@@ -81,7 +81,7 @@ function PaymentSuccess() {
 
         {status === 'success' && (
           <>
-            <div style={{fontSize: '64px', marginBottom: '20px'}}>✅</div>
+            
             <h2 style={{color: '#4CAF50'}}>Payment Successful!</h2>
             <p style={{marginTop: '15px', fontSize: '16px'}}>
               {message}
@@ -105,7 +105,7 @@ function PaymentSuccess() {
 
         {status === 'error' && (
           <>
-            <div style={{fontSize: '64px', marginBottom: '20px'}}>❌</div>
+            <div style={{fontSize: '64px', marginBottom: '20px'}}></div>
             <h2 style={{color: '#e74c3c'}}>Verification Failed</h2>
             <p style={{marginTop: '15px', color: '#666'}}>
               {message}
